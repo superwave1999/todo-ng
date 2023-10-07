@@ -1,3 +1,8 @@
+## Developer notes
+
+I didn't use Git for the frontend because
+
+
 # TodoFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
