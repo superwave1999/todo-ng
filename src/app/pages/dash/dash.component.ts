@@ -24,7 +24,7 @@ export class DashComponent implements OnInit {
     await this.service.getTasks();
   }
 
-  openTaskList(id: number = 0) {
+  openTaskList(id = 0) {
     this.dialog.open(TaskDialogComponent, {
       data: {id},
       maxHeight: '900px',
@@ -32,7 +32,7 @@ export class DashComponent implements OnInit {
     });
   }
 
-  async setTaskComplete(id: number = 0) {
+  async setTaskComplete(id = 0) {
     await this.service.setItemsComplete(id);
   }
 }

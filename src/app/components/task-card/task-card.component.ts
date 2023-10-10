@@ -12,14 +12,14 @@ export class TaskCardComponent {
 
   @Output() edit = new EventEmitter();
 
-  @Output() complete = new EventEmitter();
+  @Output() completeTask = new EventEmitter();
 
   openEdit(id: number) {
     this.edit.emit(id)
   }
 
   setComplete(id: number) {
-    this.complete.emit(id);
+    this.completeTask.emit(id);
   }
 
 }

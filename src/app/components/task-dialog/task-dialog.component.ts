@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {TaskListService} from "../../services/task-list.service";
 import {TaskListDetail} from "../../classes/task-list-detail";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Form, FormArray, FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormControl, FormGroup} from "@angular/forms";
 import { FormBuilder } from '@angular/forms'
 import {TaskAdduserComponent} from "../task-adduser/task-adduser.component";
 
@@ -28,7 +28,7 @@ export class TaskDialogComponent implements OnInit {
     private readonly service: TaskListService,
     private _snackBar: MatSnackBar,
       public dialogRef: MatDialogRef<TaskDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: any,
+      @Inject(MAT_DIALOG_DATA) public data: {id: number},
   ) {}
 
   async ngOnInit() {

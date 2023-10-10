@@ -1,7 +1,7 @@
 
 
 export abstract class AbstractModel {
-  fromObject(props?: Partial<any>) {
+  fromObject(props?: Partial<AbstractModel>) {
     Object.assign(this, props);
     return this;
   }
