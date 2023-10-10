@@ -1,25 +1,28 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {TaskListService} from "../../services/task-list.service";
-import {TaskListDetail} from "../../classes/task-list-detail";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {FormArray, FormControl, FormGroup} from "@angular/forms";
-import { FormBuilder } from '@angular/forms'
-import {TaskAdduserComponent} from "../task-adduser/task-adduser.component";
+import { Component, Inject, OnInit } from '@angular/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { TaskListService } from '../../services/task-list.service';
+import { TaskListDetail } from '../../classes/task-list-detail';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { TaskAdduserComponent } from '../task-adduser/task-adduser.component';
 
 @Component({
   selector: 'app-task-dialog',
   templateUrl: './task-dialog.component.html',
   styleUrls: ['./task-dialog.component.css'],
-  providers: [TaskListService]
+  providers: [TaskListService],
 })
 export class TaskDialogComponent implements OnInit {
-
   public loading = true;
 
   public form: FormGroup = new FormGroup({
     name: new FormControl(''),
-    items: new FormArray([])
+    items: new FormArray([]),
   });
 
   constructor(
@@ -27,8 +30,8 @@ export class TaskDialogComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private readonly service: TaskListService,
     private _snackBar: MatSnackBar,
-      public dialogRef: MatDialogRef<TaskDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: {id: number},
+    public dialogRef: MatDialogRef<TaskDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { id: number }
   ) {}
 
   async ngOnInit() {
@@ -44,7 +47,7 @@ export class TaskDialogComponent implements OnInit {
         return;
       }
       this.dialogRef.close();
-      this._snackBar.open(response?.message)
+      this._snackBar.open(response?.message);
     } else {
       this.loading = false;
       this.buildForm();
@@ -55,22 +58,24 @@ export class TaskDialogComponent implements OnInit {
     const itemFormGroups = [];
     if (existing) {
       for (const item of existing.items) {
-        itemFormGroups.push(this.formBuilder.group({
-          isComplete: [item.isComplete],
-          text: [item.text]
-        }));
+        itemFormGroups.push(
+          this.formBuilder.group({
+            isComplete: [item.isComplete],
+            text: [item.text],
+          })
+        );
       }
     }
     this.form = this.formBuilder.group({
       name: [existing ? existing.name : ''],
-      items: this.formBuilder.array(itemFormGroups)
-    })
+      items: this.formBuilder.array(itemFormGroups),
+    });
   }
 
   async addNewItem() {
     const itemForm = new FormGroup({
       isComplete: new FormControl(false),
-      text: new FormControl('')
+      text: new FormControl(''),
     });
     const formArray = <FormArray>this.form.get('items');
     formArray.push(itemForm);
@@ -81,10 +86,9 @@ export class TaskDialogComponent implements OnInit {
   }
 
   removeItem(index: number) {
-    const formArray = <FormArray>this.form.get('items')
+    const formArray = <FormArray>this.form.get('items');
     formArray.removeAt(index);
   }
-
 
   async delete() {
     if (this.data.id) {
@@ -103,14 +107,17 @@ export class TaskDialogComponent implements OnInit {
   }
 
   addUser() {
-    this.userDialog.open(TaskAdduserComponent, {
-      maxHeight: '900px',
-      maxWidth: '320px'
-    }).afterClosed().subscribe(async (userEmail) => {
-      if (userEmail) {
-        await this.service.shareWithUser(this.data.id, userEmail);
-      }
-    })
+    this.userDialog
+      .open(TaskAdduserComponent, {
+        maxHeight: '900px',
+        maxWidth: '320px',
+      })
+      .afterClosed()
+      .subscribe(async userEmail => {
+        if (userEmail) {
+          await this.service.shareWithUser(this.data.id, userEmail);
+        }
+      });
   }
 
   close() {

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {TaskListService} from "../../services/task-list.service";
-import {MatDialog} from "@angular/material/dialog";
-import {TaskDialogComponent} from "../../components/task-dialog/task-dialog.component";
+import { Component, OnInit } from '@angular/core';
+import { TaskListService } from '../../services/task-list.service';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskDialogComponent } from '../../components/task-dialog/task-dialog.component';
 
 @Component({
   selector: 'app-dash',
@@ -10,14 +10,11 @@ import {TaskDialogComponent} from "../../components/task-dialog/task-dialog.comp
   providers: [TaskListService],
 })
 export class DashComponent implements OnInit {
-
   public tasks = this.service.tasks.asReadonly();
 
-
-
   constructor(
-      private readonly service: TaskListService,
-      public dialog: MatDialog
+    private readonly service: TaskListService,
+    public dialog: MatDialog
   ) {}
 
   async ngOnInit() {
@@ -26,9 +23,9 @@ export class DashComponent implements OnInit {
 
   openTaskList(id = 0) {
     this.dialog.open(TaskDialogComponent, {
-      data: {id},
+      data: { id },
       maxHeight: '900px',
-      maxWidth: '640px'
+      maxWidth: '640px',
     });
   }
 

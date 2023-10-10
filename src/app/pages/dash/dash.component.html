@@ -1,10 +1,18 @@
 <div class="grid-container">
   <mat-grid-list cols="1" rowHeight="172px">
     <mat-grid-tile *ngFor="let task of tasks()" colspan="1" rowspan="1">
-      <app-task-card [task]="task" (edit)="openTaskList(task.id)" (completeTask)="setTaskComplete(task.id)"></app-task-card>
+      <app-task-card
+        [task]="task"
+        (edit)="openTaskList(task.id)"
+        (completeTask)="setTaskComplete(task.id)"></app-task-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<button class="fab" mat-fab color="primary" aria-label="New list" (click)="openTaskList()">
+<button
+  class="fab"
+  mat-fab
+  color="primary"
+  aria-label="New list"
+  (click)="openTaskList()">
   <mat-icon>add</mat-icon>
 </button>
