@@ -1,18 +1,16 @@
-import {Component} from '@angular/core';
-import {AuthService} from "../services/auth.service";
-import {LaravelErrorResponseType} from "../classes/laravel-error-response";
-import {User} from "../classes/user";
+import { Component } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {User} from "../../classes/user";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
-export class LoginComponent {
-
+export class LoginFormComponent {
   public loading = false;
 
   public form = new FormGroup({
@@ -21,16 +19,16 @@ export class LoginComponent {
   });
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private _snackBar: MatSnackBar
+      private authService: AuthService,
+      private router: Router,
+      private _snackBar: MatSnackBar
   ) {}
 
   async submit() {
     this.loading = true;
     const response = await this.authService.login(
-      this.form.get('email')?.value || '',
-      this.form.get('password')?.value || ''
+        this.form.get('email')?.value || '',
+        this.form.get('password')?.value || ''
     );
     if (!response) {
       return;

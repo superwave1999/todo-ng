@@ -1,0 +1,28 @@
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    width: auto;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons > .complete {
+    margin-right: 16px;
+}
+
+.dashboard-card-content {
+    text-align: center;
+}
+
+.dashboard-card-content > .items {
+    height: 4em;
+    overflow: hidden;
+}

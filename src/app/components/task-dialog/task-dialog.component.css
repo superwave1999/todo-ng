@@ -1,0 +1,19 @@
+input {
+  all: unset;
+  cursor: text;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+.last-row {
+  display: flex;
+  justify-content: center;
+}
+
+div.item > button {
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+button.delete {
+  margin-right: auto;
+}

@@ -1,0 +1,10 @@
+.grid-container {
+  margin: 20px auto;
+  max-width: 62ch;
+}
+
+button.fab {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+}

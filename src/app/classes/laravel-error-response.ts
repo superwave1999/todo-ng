@@ -12,5 +12,4 @@ export class LaravelErrorResponse {
     public readonly type: LaravelErrorResponseType,
     public readonly errors: Record<string|number, Array<string>> | null = null,
   ) {}
-
 }

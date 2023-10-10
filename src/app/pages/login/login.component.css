@@ -3,11 +3,3 @@ mat-card.login-card {
   width: fit-content;
   margin: 20vh auto 0;
 }
-
-.title {
-  padding-bottom: 1rem;
-}
-
-button.send {
-  margin-left: auto;
-}
