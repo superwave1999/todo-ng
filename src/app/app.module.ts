@@ -14,20 +14,20 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './pages/login/login.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NavComponent } from './components/nav/nav.component';
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {MatTabsModule} from "@angular/material/tabs";
-import {TaskCardComponent} from "./components/task-card/task-card.component";
-import {LoginFormComponent} from "./components/login-form/login-form.component";
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { TaskCardComponent } from './components/task-card/task-card.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TaskAdduserComponent } from './components/task-adduser/task-adduser.component';
 
 @NgModule({
@@ -41,7 +41,7 @@ import { TaskAdduserComponent } from './components/task-adduser/task-adduser.com
     LoginFormComponent,
     LoginFormComponent,
     TaskDialogComponent,
-    TaskAdduserComponent
+    TaskAdduserComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +69,9 @@ import { TaskAdduserComponent } from './components/task-adduser/task-adduser.com
     MatTabsModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
