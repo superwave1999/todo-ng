@@ -7,3 +7,21 @@ body {
   color: #fff;
   background-color: #202020
 }
+
+button.smaller.mat-mdc-icon-button.mat-mdc-button-base {
+  --mdc-icon-button-state-layer-size: 40px;
+  height: 40px;
+  width: 40px;
+  padding: 4px;
+}
+
+button.smaller.mat-mdc-icon-button .mat-mdc-button-touch-target {
+  height: 40px;
+  width: 40px;
+}
+
+button.smaller.mat-mdc-icon-button .mat-icon {
+  height: 18px;
+  width: 18px;
+  font-size: 18px;
+}

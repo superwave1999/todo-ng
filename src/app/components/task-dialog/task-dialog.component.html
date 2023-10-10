@@ -1,0 +1,32 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<form *ngIf="!loading" [formGroup]="form" (ngSubmit)="submit()">
+  <h1 mat-dialog-title>
+    <input type="text" formControlName="name" />
+  </h1>
+  <div mat-dialog-content formArrayName="items">
+    <ng-container *ngFor="let line of getControl('items'); let i=index">
+      <div [formGroupName]="i" class="item">
+        <mat-checkbox formControlName="isComplete">
+          <input type="text" formControlName="text" />
+        </mat-checkbox>
+        <button mat-icon-button color="warn" class="smaller" aria-label="Remove item" type="button" (click)="removeItem(i)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+    <div class="last-row">
+      <button mat-icon-button color="accent" aria-label="Add item" type="button" (click)="addNewItem()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button class="delete" color="warn" type="button" (click)="delete()">Delete</button>
+    <button mat-icon-button color="accent" aria-label="Add user" type="button" (click)="addUser()">
+      <mat-icon>person_add</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-button type="button" (click)="close()">Close</button>
+  </div>
+</form>
+

@@ -1,0 +1,18 @@
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            {{task.name}}
+        </mat-card-title>
+        <div class="buttons">
+            <button mat-mini-fab class="complete" color="accent" aria-label="Mark complete" (click)="setComplete(task.id)">
+                <mat-icon>task_alt</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="openEdit(task.id)">Edit</button>
+        </div>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+        <div class="items">
+            <p *ngFor="let item of task.items">{{item.isComplete ? 'X' : '-'}} {{item.text}}</p>
+        </div>
+    </mat-card-content>
+</mat-card>
