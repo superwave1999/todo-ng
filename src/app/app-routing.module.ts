@@ -9,13 +9,17 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: ':id?',
-    component: DashComponent,
+    path: '',
+    redirectTo: 'dashboard/',
     pathMatch: 'full',
   },
   {
+    path: 'dashboard/:id?',
+    component: DashComponent,
+  },
+  {
     path: '**',
-    redirectTo: '/',
+    redirectTo: 'dashboard/',
   },
 ];
 

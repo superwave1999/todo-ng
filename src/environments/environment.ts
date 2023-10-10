@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost',
+  production: true,
+  apiUrl: 'https://todo-api.iromera.com',
 };
