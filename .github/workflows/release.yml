@@ -50,7 +50,7 @@ jobs:
         run: npm install
 
       - name: Run ng build
-        run: ng build --configuration production
+        run: npm run build --configuration production
 
       # Build Static Web Server with generated content
       # https://github.com/docker/setup-qemu-action
